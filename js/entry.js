@@ -12,33 +12,33 @@ function get_dumper_factor(dumper_number, material_type, shovel_name) {
     */
     if (dumper_number.indexOf('CN-') > -1) {
     	if (dumper_number.indexOf('24') > -1 
-    	|| dumper_number.indexOf('25') > -1 
-    	|| dumper_number.indexOf('26') > -1 
-    	|| dumper_number.indexOf('27') > -1 
-    	|| dumper_number.indexOf('28') > -1 
-    	|| dumper_number.indexOf('29') > -1  
-    	|| dumper_number.indexOf('30') > -1
-    	|| dumper_number.indexOf('31') > -1 
-    	|| dumper_number.indexOf('33') > -1 
-    	|| dumper_number.indexOf('34') > -1 
-    	|| dumper_number.indexOf('35') > -1
-    	|| dumper_number.indexOf('36') > -1 
-    	|| dumper_number.indexOf('38') > -1 
-    	|| dumper_number.indexOf('39') > -1 ) {
+			|| dumper_number.indexOf('25') > -1 
+			|| dumper_number.indexOf('26') > -1 
+			|| dumper_number.indexOf('27') > -1 
+			|| dumper_number.indexOf('28') > -1 
+			|| dumper_number.indexOf('29') > -1  
+			|| dumper_number.indexOf('30') > -1
+			|| dumper_number.indexOf('31') > -1 
+			|| dumper_number.indexOf('33') > -1 
+			|| dumper_number.indexOf('34') > -1 
+			|| dumper_number.indexOf('35') > -1
+			|| dumper_number.indexOf('36') > -1 
+			|| dumper_number.indexOf('38') > -1 
+			|| dumper_number.indexOf('39') > -1 ) {
     		df = material_type == 'Coal' ? 55 : 32;
     	} else {
     		df = material_type == 'Coal' ? 45 : 32;
 	    }
     }  else if (dumper_number.indexOf('KM-') > -1) {
     	if (dumper_number.indexOf('24') > -1 
-    	|| dumper_number.indexOf('09') > -1 
-    	|| dumper_number.indexOf('10') > -1 
-    	|| dumper_number.indexOf('11') > -1 
-    	|| dumper_number.indexOf('12') > -1 
-    	|| dumper_number.indexOf('13') > -1 
-	|| dumper_number.indexOf('37') > -1
-	|| dumper_number.indexOf('38') > -1
-	|| dumper_number.indexOf('39') > -1
+			|| dumper_number.indexOf('09') > -1 
+			|| dumper_number.indexOf('10') > -1 
+			|| dumper_number.indexOf('11') > -1 
+			|| dumper_number.indexOf('12') > -1 
+			|| dumper_number.indexOf('13') > -1 
+			|| dumper_number.indexOf('37') > -1
+			|| dumper_number.indexOf('38') > -1
+			|| dumper_number.indexOf('39') > -1
     	) {
     		df = material_type == 'Coal' ? 55 : 32;
     	} else {
@@ -46,12 +46,19 @@ function get_dumper_factor(dumper_number, material_type, shovel_name) {
 	    }
     } else if (dumper_number.indexOf('L-') > -1) {
         df = material_type == 'Coal' ? 45 : 32;
-    } else if (dumper_number.indexOf('C-') > -1
-        || dumper_number.indexOf('K-') > -1
+    } else if (dumper_number.indexOf('C-') > -1) {
+		if (dumper_number.indexOf('40') > -1) {
+			df = material_type == 'Coal' ? 45 : 32;
+		} else {
+			df = material_type == 'Coal' ? 40 : 27;
+		}
+	} else if (dumper_number.indexOf('K-') > -1
         || dumper_number.indexOf('D-') > -1) {
         df = material_type == 'Coal' ? 40 : 27;
     } else if (dumper_number.indexOf('TX-') > -1) {
         df = material_type == 'Coal' ? 55 : 37;
+	} else if (dumper_number.indexOf('B-') > -1) {
+        df = material_type == 'Coal' ? 55 : 32;
     } else if (dumper_number.indexOf('CAT-') > -1) {
 	    if (shovel_name.indexOf('BHAGAT') > -1
         	|| shovel_name.indexOf('HIMALAY') > -1
