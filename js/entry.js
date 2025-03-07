@@ -47,12 +47,12 @@ function get_dumper_factor(dumper_number, material_type, shovel_name) {
     } else if (dumper_number.indexOf('L-') > -1) {
         df = material_type == 'Coal' ? 45 : 32;
     } else if (dumper_number.indexOf('C-') > -1) {
-		if (dumper_number.indexOf('40') > -1) {
-			df = material_type == 'Coal' ? 45 : 32;
-		} else {
-			df = material_type == 'Coal' ? 40 : 27;
-		}
-	} else if (dumper_number.indexOf('K-') > -1
+	if (dumper_number.indexOf('40') > -1) {
+		df = material_type == 'Coal' ? 45 : 32;
+	} else {
+		df = material_type == 'Coal' ? 40 : 27;
+	}
+    } else if (dumper_number.indexOf('K-') > -1
         || dumper_number.indexOf('D-') > -1) {
         df = material_type == 'Coal' ? 40 : 27;
     } else if (dumper_number.indexOf('TX-') > -1) {
@@ -63,6 +63,7 @@ function get_dumper_factor(dumper_number, material_type, shovel_name) {
 	    if (shovel_name.indexOf('BHAGAT') > -1
         	|| shovel_name.indexOf('HIMALAY') > -1
         	|| shovel_name.indexOf('EKG') > -1
+        	|| shovel_name.indexOf('SH05') > -1
         	) {
 		    df = material_type == 'Coal' ? 90 : 60;
     		} else {
