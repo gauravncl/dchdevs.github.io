@@ -58,7 +58,7 @@ function get_dumper_factor(dumper_number, material_type, shovel_name) {
     } else if (dumper_number.indexOf('TX-') > -1) {
         df = material_type == 'Coal' ? 55 : 37;
 	} else if (dumper_number.indexOf('B-') > -1) {
-        df = material_type == 'Coal' ? 55 : 32;
+        df = material_type == 'Coal' ? 58 : 32;
     } else if (dumper_number.indexOf('CAT-') > -1) {
 	    if (shovel_name.indexOf('BHAGAT') > -1
         	|| shovel_name.indexOf('HIMALAY') > -1
