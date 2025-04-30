@@ -60,15 +60,17 @@ function get_dumper_factor(dumper_number, material_type, shovel_name) {
 	} else if (dumper_number.indexOf('B-') > -1) {
         df = material_type == 'Coal' ? 58 : 32;
     } else if (dumper_number.indexOf('CAT-') > -1) {
-	    if (shovel_name.indexOf('BHAGAT') > -1
+    	if (shovel_name.indexOf('BHAGAT') > -1
         	|| shovel_name.indexOf('HIMALAY') > -1
         	|| shovel_name.indexOf('EKG') > -1
         	|| shovel_name.indexOf('SH05') > -1
-        	) {
-		    df = material_type == 'Coal' ? 90 : 60;
-    		} else {
-	            df = material_type == 'Coal' ? 75 : 55;
-	        }
+	) {
+		df = material_type == 'Coal' ? 90 : 60;
+    	} else if (shovel_name.indexOf('PH-19') > -1) {
+		df = material_type == 'Coal' ? 75 : 50;
+	} else {
+		df = material_type == 'Coal' ? 75 : 55;
+	}
     }
     return df;
 }
