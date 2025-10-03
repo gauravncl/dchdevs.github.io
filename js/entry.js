@@ -74,6 +74,7 @@ function get_dumper_factor(dumper_number, material_type, shovel_name) {
     }
     return df;
 }
+}
 
 
 
