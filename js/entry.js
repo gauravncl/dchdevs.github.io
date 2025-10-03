@@ -60,20 +60,14 @@ function get_dumper_factor(dumper_number, material_type, shovel_name) {
 	} else if (dumper_number.indexOf('B-') > -1) {
         df = material_type == 'Coal' ? 58 : 32;
     } else if (dumper_number.indexOf('CAT-') > -1) {
-    	function getDf(shovel_name, material_type) {
+    function getDf(shovel_name, material_type) {
+    const groupA = ['BHAGAT', 'HIMALAY', 'EKG', 'SH05']; // 90/60
+    const groupB = ['PH-19', 'KMPC-02'];                 // 75/50
     let df;
 
-    if (
-        shovel_name.indexOf('BHAGAT') > -1 ||
-        shovel_name.indexOf('HIMALAY') > -1 ||
-        shovel_name.indexOf('EKG') > -1 ||
-        shovel_name.indexOf('SH05') > -1
-    ) {
+    if (groupA.some(name => shovel_name.includes(name))) {
         df = material_type === 'Coal' ? 90 : 60;
-    } else if (
-        shovel_name.indexOf('PH-19') > -1 ||
-        shovel_name.indexOf('KMPC-02') > -1
-    ) {
+    } else if (groupB.some(name => shovel_name.includes(name))) {
         df = material_type === 'Coal' ? 75 : 50;
     } else {
         df = material_type === 'Coal' ? 75 : 55;
